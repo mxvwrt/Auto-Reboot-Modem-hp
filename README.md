@@ -14,7 +14,7 @@ wget -O /bin/ngreboot_hp "https://raw.githubusercontent.com/mxvwrt/Auto-Reboot-M
 ```
  ## Step 2
 
-Pergi Ke Luci -> System -> Scheduled Tasks, Lalu Sesuai Keinginan Jadwal Untuk Reboot, Contoh :
+Pergi Ke Luci -> System -> Scheduled Tasks, Lalu Sesuai Keinginan Jadwal Untuk Reboot Lalu Save, Contoh Crontabs Setiap jam 3 pagi :
 ```bash
 0 3 * * * /bin/ngreboot_hp >/dev/null 2>&1
 ```   
