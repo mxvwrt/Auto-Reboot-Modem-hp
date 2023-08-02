@@ -1,0 +1,28 @@
+#!/bin/bash
+
+# Periksa apakah adb terinstal
+if ! command -v adb &>/dev/null; then
+    echo "ADB tidak terinstal. Mohon instal Android SDK platform-tools."
+    exit 1
+fi
+
+# Periksa perangkat yang terhubung
+devices=$(adb devices | awk 'NR > 1 {print $1}')
+
+if [ -z "$devices" ]; then
+    echo "Tidak ada perangkat yang ditemukan."
+    exit 1
+fi
+
+# Reboot setiap perangkat yang terhubung
+for device in $devices; do
+    # Periksa status perangkat
+    status=$(adb -s $device get-state)
+
+    if [ "$status" = "device" ]; then
+        echo "Mengulang perangkat: $device"
+        adb -s $device reboot
+    else
+        echo "Melewati pengulangan untuk perangkat $device karena tidak berada dalam mode 'device'. Status saat ini: $status"
+    fi
+done
