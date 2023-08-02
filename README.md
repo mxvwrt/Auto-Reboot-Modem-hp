@@ -18,6 +18,6 @@ Pergi Ke Luci -> System -> Scheduled Tasks, Lalu Sesuai Keinginan Jadwal Untuk R
 ```bash
 0 3 * * * /bin/ngreboot_hp
 ```   
-untuk lebih jelas bisa ke Link Berikut 
+untuk lebih jelas tentang crontab bisa ke Link Berikut 
 [Link Berikut](https://crontab.guru/)
 
