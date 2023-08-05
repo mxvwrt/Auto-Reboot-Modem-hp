@@ -22,6 +22,8 @@ for device in $devices; do
     if [ "$status" = "device" ]; then
         echo "Mengulang perangkat: $device"
         adb -s $device reboot
+        sleep 60
+        adb tcpip 5555
     else
         echo "Melewati pengulangan untuk perangkat $device karena tidak berada dalam mode 'device'. Status saat ini: $status"
     fi
